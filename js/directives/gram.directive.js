@@ -7,8 +7,9 @@ let gramItem = function(InstaService) {
       gram: '=gram'
     },
     template: `
-      <div class="panel">
-        <img src="{{ gram.url }}">
+      <div class="gramblock">
+        <img class="image" src="{{ gram.url }}">
+        <p><i class="fa fa-thumbs-up"></i>{{ gram.likes }}</p>
       </div>
     `,
   };

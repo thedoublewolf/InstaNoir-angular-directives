@@ -111,7 +111,7 @@ var gramItem = function gramItem(InstaService) {
     scope: {
       gram: '=gram'
     },
-    template: '\n      <div class="panel">\n        <img src="{{ gram.url }}">\n      </div>\n    '
+    template: '\n      <div class="gramblock">\n        <img class="image" src="{{ gram.url }}">\n        <p><i class="fa fa-thumbs-up"></i>{{ gram.likes }}</p>\n      </div>\n    '
   };
 };
 
