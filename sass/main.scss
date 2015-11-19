@@ -46,10 +46,37 @@ li {
   display: inline-block;
   background: black;
   border-radius: 5px;
+  position: relative;
 }
 .image {
   height: 90%;
+  position: relative;
 }
 .fa {
   color: #CECECE;
 }
+.likenum {
+  color: #CECECE;
+}
+.thumbsuphidden {
+  position: absolute;
+  left: 50%;
+  left: 90px;
+  bottom: 50%;
+  bottom: 90px;
+  color: white;
+  visibility: hidden;
+}
+.thumbsupshown {
+  position: absolute;
+  left: 50%;
+  left: 90px;
+  bottom: 50%;
+  bottom: 90px;
+  color: white;
+}
+
+
+
+
+
