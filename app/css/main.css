@@ -6434,7 +6434,7 @@ li {
 .likenum {
   color: #CECECE; }
 
-.thumbsuphidden {
+.hidden {
   position: absolute;
   left: 50%;
   left: 90px;
@@ -6443,7 +6443,7 @@ li {
   color: white;
   visibility: hidden; }
 
-.thumbsupshown {
+.shown {
   position: absolute;
   left: 50%;
   left: 90px;

@@ -102,18 +102,21 @@ Object.defineProperty(exports, '__esModule', {
 var gramItem = function gramItem(InstaService, $timeout) {
 
   return {
-    restrict: 'E',
-    replace: true,
+    restrict: 'AE',
+    // replace: true,
     scope: {
-      gram: '=gram'
+      gram: "=gram"
     },
-    template: '\n      <div class="gramblock">\n        <img class="image" ng-src="{{ gram.url }}">\n        <i class="thumbsuphidden fa fa-thumbs-up fa-5x"></i>\n        <p class="likenum"><i class="fa fa-thumbs-up"></i>{{ gram.likes }}</p>\n      </div>\n    ',
-    controller: 'AddController as vm',
+    template: '\n      <div class="gramblock">\n        <img class="image" ng-src="{{ gram.url }}">\n        <span class="hidden ><i fa fa-thumbs-up fa-5x"></i></span>\n        <p class="likenum"><i class="fa fa-thumbs-up"></i>{{ gram.likes }}</p>\n      </div>\n    ',
     link: function link(scope, element, attrs) {
-      element.on('click', function () {
-        element.find('thumbsuphidden').toggleClass('thumbsupshown');
-        // InstaService.addLike(scope.gram);
-        console.log('click');
+      element.on('dblclick', function () {
+        element.find('span').removeClass('hidden').addClass('shown');
+        $timeout(function () {
+          element.find('span').removeClass('shown').addClass('hidden');
+        }, 1000);
+        InstaService.addLike(scope.gram).then(function (res) {
+          console.log(res);
+        });
       });
     }
   };
@@ -169,6 +172,7 @@ var InstaService = function InstaService($http, PARSE) {
 
   this.getAllGrams = getAllGrams;
   this.addGram = addGram;
+  this.addLike = addLike;
 
   function Gram(gramObj) {
     this.url = gramObj.url;

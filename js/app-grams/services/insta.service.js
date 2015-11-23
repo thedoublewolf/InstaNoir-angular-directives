@@ -4,6 +4,7 @@ let InstaService = function($http, PARSE) {
 
   this.getAllGrams = getAllGrams;
   this.addGram = addGram;
+  this.addLike = addLike;
 
   function Gram (gramObj) {
     this.url = gramObj.url;

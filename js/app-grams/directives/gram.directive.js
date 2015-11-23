@@ -3,24 +3,27 @@
 let gramItem = function(InstaService, $timeout) {
   
   return {
-    restrict: 'E',
-    replace: true,
+    restrict: 'AE',
+    // replace: true,
     scope: {
-      gram: '=gram'
+      gram: "=gram"
     },
     template: `
       <div class="gramblock">
         <img class="image" ng-src="{{ gram.url }}">
-        <i class="thumbsuphidden fa fa-thumbs-up fa-5x"></i>
+        <span class="hidden ><i fa fa-thumbs-up fa-5x"></i></span>
         <p class="likenum"><i class="fa fa-thumbs-up"></i>{{ gram.likes }}</p>
       </div>
     `,
-    controller: 'AddController as vm',
     link: function (scope, element, attrs) {
-      element.on('click', function () {
-        element.find('thumbsuphidden').toggleClass('thumbsupshown');
-        // InstaService.addLike(scope.gram);
-        console.log('click');
+      element.on('dblclick', function () {
+        element.find('span').removeClass('hidden').addClass('shown');
+        $timeout(function() {
+          element.find('span').removeClass('shown').addClass('hidden');
+        }, 1000);
+        InstaService.addLike(scope.gram).then( (res) => {
+          console.log(res);
+        });
       });
     }
   };
