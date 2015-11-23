@@ -5,17 +5,17 @@ let config = function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('root', {
       abstract: true,
-      templateUrl: 'templates/layout.tpl.html'
+      templateUrl: 'templates/app-layout/layout.tpl.html'
     })
     .state('root.home', {
       url: '/',
       controller: 'HomeController as vm',
-      templateUrl: 'templates/home.tpl.html'
+      templateUrl: 'templates/app-layout/home.tpl.html'
     })
     .state('root.add', {
       url: '/add',
       controller: 'AddController as vm',
-      templateUrl: 'templates/add.tpl.html'
+      templateUrl: 'templates/app-grams/add.tpl.html'
     });
 };
 
